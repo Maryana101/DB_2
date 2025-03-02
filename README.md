@@ -11,7 +11,7 @@ mysql -h 127.0.0.1 -P 3306  -u root -p
 1.2. Создайте учётную запись sys_temp. 
 
 ```sql
-CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'root';
+CREATE USER 'sys_temp'@'%' IDENTIFIED BY 'root';
 ```
 
 1.3. Выполните запрос на получение списка пользователей в базе данных. (скриншот)
@@ -21,7 +21,7 @@ CREATE USER 'sys_temp'@'localhost' IDENTIFIED BY 'root';
 1.4. Дайте все права для пользователя sys_temp. 
 
 ```sql
-GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'localhost' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'sys_temp'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
@@ -29,6 +29,7 @@ FLUSH PRIVILEGES;
 ![](./img/2.png)
 
 1.6. Переподключитесь к базе данных от имени sys_temp.
+
 ![](./img/3.png)
 
 1.6. По ссылке https://downloads.mysql.com/docs/sakila-db.zip скачайте дамп базы данных.
